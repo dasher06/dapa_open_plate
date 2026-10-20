@@ -33,7 +33,7 @@ echo "Building backend..."
 npm run build
 
 echo "Starting backend on port 3000..."
-PORT=3000 node dist/index.js >"$BACKEND_LOG" 2>&1 &
+PORT=3000 node dist/src/index.js >"$BACKEND_LOG" 2>&1 &
 BACKEND_PID=$!
 
 backend_healthy=0
