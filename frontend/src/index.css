@@ -1,0 +1,197 @@
+/* =========================================================================
+   Open Plate — Design System Tokens & Global Styles
+   Aesthetic: Premium White Glassmorphism / Healthcare-Tech Aesthetic
+   Inspired by clean, precision-driven modern healthcare interfaces
+   ========================================================================= */
+
+:root {
+  /* Core Color Palette - Clean Healthcare-Tech */
+  --bg-app: #F7FAFC;
+  --bg-sidebar: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-solid: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-surface-subtle: #F8FAFC;
+  --bg-surface-glass: rgba(255, 255, 255, 0.72);
+  --bg-highlight: #EAF6FF;
+
+  /* Accent Colors */
+  --accent-cyan: #12B8D4;
+  --accent-cyan-light: #E0F7FA;
+  --accent-teal: #14B8A6;
+  --accent-teal-light: #CCFBF1;
+  --accent-blue: #0284C7;
+  --accent-blue-soft: #EAF6FF;
+
+  /* Button Styles */
+  --bg-button: #10243A;
+  --bg-button-hover: #1E3A5F;
+  --bg-button-active: #0B1929;
+  --bg-button-accent: #0891B2;
+  --bg-button-accent-hover: #0E7490;
+  --bg-button-subtle: #F1F5F9;
+  --bg-button-subtle-hover: #E2E8F0;
+
+  /* Borders & Dividers */
+  --border-subtle: #EDF2F7;
+  --border-default: #DCE7F0;
+  --border-focus: #12B8D4;
+  --border-glass: rgba(220, 231, 240, 0.7);
+
+  /* Typography Colors */
+  --text-primary: #10243A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --text-code: #0F172A;
+  --text-accent: #0891B2;
+
+  /* Status Colors */
+  --status-success-bg: #ECFDF5;
+  --status-success-border: #A7F3D0;
+  --status-success-text: #065F46;
+
+  --status-error-bg: #FEF2F2;
+  --status-error-border: #FECACA;
+  --status-error-text: #991B1B;
+
+  --status-warning-bg: #FFFBEB;
+  --status-warning-border: #FDE68A;
+  --status-warning-text: #92400E;
+
+  --status-info-bg: #EAF6FF;
+  --status-info-border: #BAE6FD;
+  --status-info-text: #0369A1;
+
+  /* Glassmorphism & Elevation */
+  --glass-backdrop: blur(12px);
+  --shadow-sm: 0 1px 3px rgba(16, 36, 58, 0.04), 0 1px 2px rgba(16, 36, 58, 0.02);
+  --shadow-md: 0 4px 20px rgba(16, 36, 58, 0.05), 0 1px 4px rgba(16, 36, 58, 0.02);
+  --shadow-lg: 0 10px 30px rgba(16, 36, 58, 0.07), 0 2px 8px rgba(16, 36, 58, 0.03);
+  --shadow-glow: 0 0 0 3px rgba(18, 184, 212, 0.15);
+
+  /* Spacing & Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  /* Typography */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  color-scheme: light;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+}
+
+/* Precision Light Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-color: var(--border-default) var(--bg-app);
+    scrollbar-width: thin;
+  }
+}
+
+/* Base Accessibility Focus Indicator */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+input, button, textarea {
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Glass panel utility */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-md);
+}
+
+/* Layout Utilities */
+.app-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-app);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--bg-app);
+}
+
+.workspace-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 24px 60px 24px;
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .workspace-area {
+    padding: 24px 16px 40px 16px;
+  }
+}

@@ -37,6 +37,28 @@ app.use(
 
 /**
  * ---------------------------------------------------------
+ * Error Handling Middleware
+ * ---------------------------------------------------------
+ */
+
+app.use((err: any, req: express.Request, res: express.Response, _next: express.NextFunction): void => {
+    // Handle malformed JSON body from express.json()
+    if (err instanceof SyntaxError && "status" in err && err.status === 400) {
+        res.status(400).json({
+            error: "Invalid JSON payload"
+        });
+        return;
+    }
+
+    console.error("Internal Server Error:", err);
+
+    res.status(500).json({
+        error: "Internal server error"
+    });
+});
+
+/**
+ * ---------------------------------------------------------
  * Server
  * ---------------------------------------------------------
  */

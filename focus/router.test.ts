@@ -91,4 +91,18 @@ describe("Open Plate API", () => {
 
     });
 
+    describe("Health checks", () => {
+
+        test("returns ok for GET /health", async () => {
+
+            const response = await request(app)
+                .get("/health");
+
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual({ status: "ok" });
+
+        });
+
+    });
+
 });
