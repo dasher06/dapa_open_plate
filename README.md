@@ -335,3 +335,47 @@ Future improvements may include stronger input validation, consistent error hand
 **Open Plate — Universal File Naming API**
 
 Built to make filenames more consistent, structured, and machine-readable.
+
+## GitHub Codespaces
+
+Open Plate includes a Codespaces-friendly startup flow for quick local-in-browser development in a cloud environment.
+
+### 1. Open the repository in GitHub Codespaces
+
+In the GitHub repository, select "Code" and then "Codespaces". Create a new Codespace from the default branch. GitHub will build the container, install dependencies, and forward the relevant ports.
+
+### 2. Wait for dependency installation
+
+After the Codespace is created, wait for the devcontainer to finish installing dependencies. The container runs `npm ci` and `npm --prefix frontend ci` automatically.
+
+### 3. Start the app
+
+From the repository root, run:
+
+```bash
+npm run codespace
+```
+
+This script builds the backend, waits for `GET /health` to return `200 OK`, then starts the Vite frontend on `0.0.0.0:5173`. The backend starts first and the frontend does not begin until the backend is healthy.
+
+### 4. Open the app in the browser
+
+Use the forwarded port labeled `Open Plate` on port `5173` to open the frontend in your browser. If prompted by the browser or the editor, allow the forwarded port to open.
+
+### 5. Access the API
+
+The backend API is available on the forwarded port labeled `Open Plate API` on port `3000`.
+
+### 6. Stop the application
+
+Press `Ctrl+C` in the terminal running `npm run codespace` to stop the backend and frontend processes cleanly.
+
+### 7. Run tests and production builds
+
+```bash
+npm test
+npm run build
+npm run frontend:build
+```
+
+GitHub Codespaces requires GitHub access and may consume account usage or incur charges depending on your plan and quota. This environment is intended for development and testing, not permanent production hosting.

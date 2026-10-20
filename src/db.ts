@@ -1,7 +1,14 @@
 import Database from "better-sqlite3";
 import { PlateRecord } from "./plateService";
 
-const db = new Database("openplate.db");
+// Tests must never fall back to the production database path.
+const isTest = process.env.NODE_ENV === "test";
+
+const dbPath = isTest
+  ? ":memory:"
+  : process.env.DB_PATH || "openplate.db";
+
+const db = new Database(dbPath);
 
 /**
  * Initialize the SQLite database.
@@ -70,4 +77,11 @@ export function getPlate(id: string): StoredPlate | undefined {
         generatedName: row.generated_name,
         createdAt: row.created_at,
     };
+}
+
+/**
+ * Clear all plate records (for test isolation).
+ */
+export function clearPlates(): void {
+    db.exec("DELETE FROM plates");
 }
