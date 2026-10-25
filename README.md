@@ -6,7 +6,7 @@
 
 Open Plate is a developer-focused file naming platform that converts human-readable file descriptions into standardized filenames. It provides a REST API for generating and retrieving naming records, a web interface for interacting with the API, and a persistent SQLite database for storing generated records.
 
-[Features](#features) · [Getting Started](#getting-started) · [GitHub Codespaces](#run-with-github-codespaces) · [API Reference](#api-reference) · [Testing](#testing) · [Troubleshooting](#troubleshooting)
+[Features](#features) · [Quick Start](#quick-start) · [GitHub Codespaces](#run-with-github-codespaces) · [API Reference](#api-reference) · [Testing](#testing) · [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -18,7 +18,7 @@ Open Plate is a developer-focused file naming platform that converts human-reada
 - [Technology Stack](#technology-stack)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
+- [Quick Start](#quick-start)
 - [Run Locally on Windows](#run-locally-on-windows)
 - [Run Locally on macOS and Linux](#run-locally-on-macos-and-linux)
 - [Run with GitHub Codespaces](#run-with-github-codespaces)
@@ -197,7 +197,7 @@ The `.nvmrc` file pins the intended major version. If you use `nvm`, run `nvm us
 
 ---
 
-## Getting Started
+## Quick Start
 
 Clone the repository:
 
